@@ -1,0 +1,24 @@
+بناء APK من الهاتف فقط — دون كمبيوتر
+
+الطريقة تستخدم GitHub Actions لبناء APK على خوادم GitHub، والهاتف يكفي للرفع والتنزيل.
+
+1) أنشئ حساباً أو سجّل الدخول إلى https://github.com من Chrome.
+2) أنشئ مستودعاً جديداً (New repository)، وسمّه SONAR-PRO-ANDROID، واجعله Private أو Public.
+3) فك ضغط SONAR_PRO_ANDROID_SOURCE.zip على الهاتف.
+4) ارفع جميع محتويات مجلد SONAR_PRO_ANDROID إلى المستودع مع الحفاظ على المجلدات، خصوصاً:
+   .github/workflows/android.yml
+   app/
+   build.gradle
+   settings.gradle
+   gradle.properties
+5) افتح تبويب Actions في المستودع. إذا ظهر طلب تفعيل Actions فوافق عليه.
+6) افتح مهمة Build SONAR PRO APK وانتظر حتى تصبح خضراء (نجاح).
+7) افتح المهمة الناجحة، وانزل إلى Artifacts، واضغط SONAR-PRO-Android-APK لتنزيله.
+8) فك ضغط ملف Artifact، وستجد app-debug.apk. افتحه وثبّته، واسمح بالتثبيت من هذا المصدر إذا طلب Android ذلك.
+
+ملاحظات:
+- البناء يتم على خوادم GitHub، وليس داخل الهاتف؛ لا تحتاج Android Studio أو SDK على هاتفك.
+- أول بناء قد يستغرق عدة دقائق.
+- APK الناتج نسخة Debug للتثبيت والاختبار، وليس إصدار متجر Play.
+- لا ترفع مفاتيح API أو كلمات مرور أو بيانات شخصية إلى مستودع عام.
+- يحتاج التطبيق الإنترنت لبيانات السوق والرسوم الخارجية.
